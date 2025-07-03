@@ -64,9 +64,7 @@ Now, open your browser and visit [http://localhost:5173](http://localhost:5173) 
 * `src/TodoList.jsx`: Main component handling task input, state, and display
 * `src/index.css`: Custom styles for layout and appearance
 
-## 📷 Preview
 
-![Todo List Screenshot](https://dummyimage.com/600x400/cccccc/000000\&text=Todo+App+Preview)
 
 ## ✨ Future Enhancements
 
