@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoList() {
-  // State to hold the list of todos
-  const [todos, setTodos] = useState(["sample Task"]);
+  
+  const [todos, setTodos] = useState([{task:"sample Task", id : uuidv4()}]);
 
-  // State to hold the current value typed in the input box
+  
   const [newTodo, setNewTodo] = useState("");
 
-  // Function to handle adding a new task
+  
   const addNewTask = () => {
     console.log(`We have to add a new task in todo is ${newTodo}`  );
     
     if (newTodo.trim() !== "")  //Prevents adding blank tasks
     {
-      setTodos([...todos, newTodo]); // Add the new task to the list
+      setTodos([...todos, {task:newTodo, id : uuidv4()}]); // Add the new task to the list
       setNewTodo(""); // Clear the input field
     } else {
       console.log("Please enter a valid task.");
     }
   };
 
-  // Function to handle input value change
+ 
   const updateTodoValue = (event) => {
     setNewTodo(event.target.value); // This logs the full input element like (event.target)   but (event.target.value)  only logs (value shown in output) 
   };
@@ -49,11 +50,11 @@ export default function TodoList() {
       
       <button onClick={addNewTask}>Add Task</button>
 
-      <br /><br /><br />
+      <br /><br /><br />  
 
       <ul>
-        {todos.map((task, index) => (
-          <li key={index}>{task}</li>
+        {todos.map((todo) => (
+          <li key={todo.id}>{todo.task}</li>
         ))}
       </ul>
     </div>
